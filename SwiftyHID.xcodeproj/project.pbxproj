@@ -7,14 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1ACEF653217BBA16003522C4 /* SwiftyHID.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ACEF652217BBA16003522C4 /* SwiftyHID.h */; };
-		1ACEF655217BBA16003522C4 /* SwiftyHID.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF654217BBA16003522C4 /* SwiftyHID.m */; };
+		1ACEF66B217BBA76003522C4 /* HIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF65C217BBA75003522C4 /* HIDManager.swift */; };
+		1ACEF66C217BBA76003522C4 /* HIDReportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF65D217BBA76003522C4 /* HIDReportType.swift */; };
+		1ACEF66D217BBA76003522C4 /* HIDValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF65E217BBA76003522C4 /* HIDValue.swift */; };
+		1ACEF66E217BBA76003522C4 /* Allocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF65F217BBA76003522C4 /* Allocator.swift */; };
+		1ACEF670217BBA76003522C4 /* HIDTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF661217BBA76003522C4 /* HIDTransaction.swift */; };
+		1ACEF671217BBA76003522C4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF662217BBA76003522C4 /* Utils.swift */; };
+		1ACEF672217BBA76003522C4 /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF663217BBA76003522C4 /* WeakArray.swift */; };
+		1ACEF673217BBA76003522C4 /* HIDDeviceProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF664217BBA76003522C4 /* HIDDeviceProperty.swift */; };
+		1ACEF674217BBA76003522C4 /* HIDElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF665217BBA76003522C4 /* HIDElement.swift */; };
+		1ACEF675217BBA76003522C4 /* HIDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF666217BBA76003522C4 /* HIDQueue.swift */; };
+		1ACEF676217BBA76003522C4 /* HIDOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF667217BBA76003522C4 /* HIDOptions.swift */; };
+		1ACEF677217BBA76003522C4 /* Return.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF668217BBA76003522C4 /* Return.swift */; };
+		1ACEF678217BBA76003522C4 /* HIDDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF669217BBA76003522C4 /* HIDDevice.swift */; };
+		1ACEF679217BBA76003522C4 /* HIDUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACEF66A217BBA76003522C4 /* HIDUsage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1ACEF64F217BBA16003522C4 /* libSwiftyHID.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libSwiftyHID.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		1ACEF652217BBA16003522C4 /* SwiftyHID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyHID.h; sourceTree = "<group>"; };
-		1ACEF654217BBA16003522C4 /* SwiftyHID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiftyHID.m; sourceTree = "<group>"; };
+		1ACEF65B217BBA75003522C4 /* SwiftyHID-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftyHID-Bridging-Header.h"; sourceTree = "<group>"; };
+		1ACEF65C217BBA75003522C4 /* HIDManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIDManager.swift; sourceTree = "<group>"; };
+		1ACEF65D217BBA76003522C4 /* HIDReportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIDReportType.swift; sourceTree = "<group>"; };
+		1ACEF65E217BBA76003522C4 /* HIDValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIDValue.swift; sourceTree = "<group>"; };
+		1ACEF65F217BBA76003522C4 /* Allocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Allocator.swift; sourceTree = "<group>"; };
+		1ACEF661217BBA76003522C4 /* HIDTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIDTransaction.swift; sourceTree = "<group>"; };
+		1ACEF662217BBA76003522C4 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1ACEF663217BBA76003522C4 /* WeakArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakArray.swift; sourceTree = "<group>"; };
+		1ACEF664217BBA76003522C4 /* HIDDeviceProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIDDeviceProperty.swift; sourceTree = "<group>"; };
+		1ACEF665217BBA76003522C4 /* HIDElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIDElement.swift; sourceTree = "<group>"; };
+		1ACEF666217BBA76003522C4 /* HIDQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIDQueue.swift; sourceTree = "<group>"; };
+		1ACEF667217BBA76003522C4 /* HIDOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIDOptions.swift; sourceTree = "<group>"; };
+		1ACEF668217BBA76003522C4 /* Return.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Return.swift; sourceTree = "<group>"; };
+		1ACEF669217BBA76003522C4 /* HIDDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIDDevice.swift; sourceTree = "<group>"; };
+		1ACEF66A217BBA76003522C4 /* HIDUsage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIDUsage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,8 +72,21 @@
 		1ACEF651217BBA16003522C4 /* SwiftyHID */ = {
 			isa = PBXGroup;
 			children = (
-				1ACEF652217BBA16003522C4 /* SwiftyHID.h */,
-				1ACEF654217BBA16003522C4 /* SwiftyHID.m */,
+				1ACEF65F217BBA76003522C4 /* Allocator.swift */,
+				1ACEF669217BBA76003522C4 /* HIDDevice.swift */,
+				1ACEF664217BBA76003522C4 /* HIDDeviceProperty.swift */,
+				1ACEF665217BBA76003522C4 /* HIDElement.swift */,
+				1ACEF65C217BBA75003522C4 /* HIDManager.swift */,
+				1ACEF667217BBA76003522C4 /* HIDOptions.swift */,
+				1ACEF666217BBA76003522C4 /* HIDQueue.swift */,
+				1ACEF65D217BBA76003522C4 /* HIDReportType.swift */,
+				1ACEF661217BBA76003522C4 /* HIDTransaction.swift */,
+				1ACEF66A217BBA76003522C4 /* HIDUsage.swift */,
+				1ACEF65E217BBA76003522C4 /* HIDValue.swift */,
+				1ACEF668217BBA76003522C4 /* Return.swift */,
+				1ACEF662217BBA76003522C4 /* Utils.swift */,
+				1ACEF663217BBA76003522C4 /* WeakArray.swift */,
+				1ACEF65B217BBA75003522C4 /* SwiftyHID-Bridging-Header.h */,
 			);
 			path = SwiftyHID;
 			sourceTree = "<group>";
@@ -60,7 +98,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ACEF653217BBA16003522C4 /* SwiftyHID.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +132,7 @@
 				TargetAttributes = {
 					1ACEF64E217BBA16003522C4 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -121,7 +159,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ACEF655217BBA16003522C4 /* SwiftyHID.m in Sources */,
+				1ACEF679217BBA76003522C4 /* HIDUsage.swift in Sources */,
+				1ACEF670217BBA76003522C4 /* HIDTransaction.swift in Sources */,
+				1ACEF672217BBA76003522C4 /* WeakArray.swift in Sources */,
+				1ACEF66D217BBA76003522C4 /* HIDValue.swift in Sources */,
+				1ACEF678217BBA76003522C4 /* HIDDevice.swift in Sources */,
+				1ACEF66B217BBA76003522C4 /* HIDManager.swift in Sources */,
+				1ACEF675217BBA76003522C4 /* HIDQueue.swift in Sources */,
+				1ACEF677217BBA76003522C4 /* Return.swift in Sources */,
+				1ACEF671217BBA76003522C4 /* Utils.swift in Sources */,
+				1ACEF66C217BBA76003522C4 /* HIDReportType.swift in Sources */,
+				1ACEF676217BBA76003522C4 /* HIDOptions.swift in Sources */,
+				1ACEF66E217BBA76003522C4 /* Allocator.swift in Sources */,
+				1ACEF674217BBA76003522C4 /* HIDElement.swift in Sources */,
+				1ACEF673217BBA76003522C4 /* HIDDeviceProperty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,24 +285,33 @@
 		1ACEF659217BBA16003522C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TJ5K7WSP8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftyHID/SwiftyHID-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		1ACEF65A217BBA16003522C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TJ5K7WSP8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftyHID/SwiftyHID-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
