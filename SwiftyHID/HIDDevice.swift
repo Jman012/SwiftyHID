@@ -37,9 +37,9 @@ Wrapper for `IOHIDReportCallback`.
 - Parameter reportID: The report's ID.
 - Parameter report: The report data.
 */
-public typealias HIDDeviceInputReportCallback = (_ result: Return, _ sender: HIDDevice, _ type: HIDReportType, _ reportID: UInt32, _ report: [UInt8]) -> Void
+public typealias HIDDeviceInputReportCallback = (_ result: Return, _ sender: HIDDevice, _ type: HIDReportType, _ reportID: UInt32, _ report: Data) -> Void
 
-public typealias HIDDeviceInputReportWithTimestampCallback = (_ result: Return, _ sender: HIDDevice, _ type: HIDReportType, _ rpeortID: UInt32, _ report: [UInt8], _ timestamp: UInt64) -> Void
+public typealias HIDDeviceInputReportWithTimestampCallback = (_ result: Return, _ sender: HIDDevice, _ type: HIDReportType, _ rpeortID: UInt32, _ report: Data, _ timestamp: UInt64) -> Void
 
 public class HIDDevice {
 	
@@ -129,10 +129,10 @@ public class HIDDevice {
 			let device = deviceSender === this.device ? this : HIDDevice(with: deviceSender)
 			
 			if this.registeredInputReportCallbacks.count > 0 {
-				let reportArray = Utils.createArray(pointer: report, length: reportLength)
+				let reportData = Data(bytes: report, count: reportLength)
 				
 				for callback in this.registeredInputReportCallbacks {
-					callback(Return(with: result), device, HIDReportType(with: type), reportID, reportArray)
+					callback(Return(with: result), device, HIDReportType(with: type), reportID, reportData)
 				}
 			}
 		}
@@ -157,10 +157,10 @@ public class HIDDevice {
 			let device = deviceSender === this.device ? this : HIDDevice(with: deviceSender)
 			
 			if this.registeredInputReportWithTimestampsCallbacks.count > 0 {
-				let reportArray = Utils.createArray(pointer: report, length: reportLength)
+				let reportData = Data(bytes: report, count: reportLength)
 				
 				for callback in this.registeredInputReportWithTimestampsCallbacks {
-					callback(Return(with: result), device, HIDReportType(with: type), reportID, reportArray, timestamp)
+					callback(Return(with: result), device, HIDReportType(with: type), reportID, reportData, timestamp)
 				}
 			}
 		}

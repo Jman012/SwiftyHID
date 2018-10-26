@@ -83,9 +83,9 @@ public class HIDManager {
 			let device = HIDDevice(with: deviceSender)
 			
 			if let callback = this.registeredInputReportCallback {
-				let reportArray = Utils.createArray(pointer: report, length: reportLength)
+				let reportData = Data(bytes: report, count: reportLength)
 				
-				callback(Return(with: result), device, HIDReportType(with: type), reportID, reportArray)
+				callback(Return(with: result), device, HIDReportType(with: type), reportID, reportData)
 			}
 		}
 		self.register(inputReportCallback: inputReportCallback, context: context)
