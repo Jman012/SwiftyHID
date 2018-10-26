@@ -48,7 +48,7 @@ extension HIDValue: CustomStringConvertible {
 	// MARK: HIDValue CustomStringConvertible Implementation
 	
 	public var description: String {
-		return "Timestamp: \(getTimeStamp()), Length: \(getLength()), Bytes: \(self.getBytes().map { $0 }), Integer: \(getIntegerValue()), Element: \(getElement())"
+		return "Timestamp: \(timestamp), Length: \(length), Bytes: \(self.bytes.map { $0 }), Integer: \(integerValue), Element: \(element)"
 	}
 }
 
@@ -136,7 +136,7 @@ extension HIDValue {
 	@result     Returns a IOHIDElementRef referenced by this value.
 	*/
 	@available(OSX 10.5, *)
-	public func getElement() -> HIDElement {
+	public var element: HIDElement {
 		return HIDElement(with: IOHIDValueGetElement(value))
 	}
 	
@@ -148,7 +148,7 @@ extension HIDValue {
 	@result     Returns a uint64_t representing the timestamp of this value.
 	*/
 	@available(OSX 10.5, *)
-	public func getTimeStamp() -> UInt64 {
+	public var timestamp: UInt64 {
 		return IOHIDValueGetTimeStamp(value)
 	}
 	
@@ -160,7 +160,7 @@ extension HIDValue {
 	*/
 	@available(OSX 10.5, *)
 	// See getBytes() -> Data
-	public func getLength() -> CFIndex {
+	public var length: CFIndex {
 		return IOHIDValueGetLength(value)
 	}
 	
@@ -171,11 +171,8 @@ extension HIDValue {
 	@result     Returns a pointer to the value.
 	*/
 	@available(OSX 10.5, *)
-//	public func IOHIDValueGetBytePtr(_ value: IOHIDValue) -> UnsafePointer<UInt8>
-	// See getBytes() -> Data
-	
-	public func getBytes() -> Data {
-		return Data(bytes: IOHIDValueGetBytePtr(value), count: getLength())
+	public var bytes: Data {
+		return Data(bytes: IOHIDValueGetBytePtr(value), count: length)
 	}
 	
 	
@@ -187,7 +184,7 @@ extension HIDValue {
 	@result     Returns an integer representation of the value.
 	*/
 	@available(OSX 10.5, *)
-	public func getIntegerValue() -> CFIndex {
+	public var integerValue: Int {
 		return IOHIDValueGetIntegerValue(value)
 	}
 	
