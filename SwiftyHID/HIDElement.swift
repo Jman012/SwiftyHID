@@ -709,8 +709,8 @@ extension HIDElement {
 	@result     Returns the unit.
 	*/
 	@available(OSX 10.5, *)
-	public var unit: UInt32 {
-		return IOHIDElementGetUnit(element)
+	public var unit: HIDUnit {
+		return HIDUnit(withData: IOHIDElementGetUnit(element))
 	}
 	
 	/*!
