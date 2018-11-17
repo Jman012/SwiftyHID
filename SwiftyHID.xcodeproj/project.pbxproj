@@ -35,6 +35,7 @@
 		1A87F39D219913B500F1F97C /* HIDUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A87F39C219913B500F1F97C /* HIDUnit.swift */; };
 		1A87F39F219A80BA00F1F97C /* HIDUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A87F39E219A80BA00F1F97C /* HIDUnitTests.swift */; };
 		1A87F3A1219BFBCF00F1F97C /* UtilsTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A87F3A0219BFBCF00F1F97C /* UtilsTesting.swift */; };
+		1A87F3A521A0990C00F1F97C /* HIDCountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A87F3A421A0990C00F1F97C /* HIDCountryCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		1A87F39C219913B500F1F97C /* HIDUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIDUnit.swift; sourceTree = "<group>"; };
 		1A87F39E219A80BA00F1F97C /* HIDUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIDUnitTests.swift; sourceTree = "<group>"; };
 		1A87F3A0219BFBCF00F1F97C /* UtilsTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTesting.swift; sourceTree = "<group>"; };
+		1A87F3A421A0990C00F1F97C /* HIDCountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIDCountryCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				1A87F3552198DFD700F1F97C /* SwiftyHID.h */,
 				1A87F3562198DFD700F1F97C /* Info.plist */,
 				1A87F39C219913B500F1F97C /* HIDUnit.swift */,
+				1A87F3A421A0990C00F1F97C /* HIDCountryCode.swift */,
 			);
 			path = SwiftyHID;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A87F3952198DFFD00F1F97C /* HIDDeviceProperty.swift in Sources */,
+				1A87F3A521A0990C00F1F97C /* HIDCountryCode.swift in Sources */,
 				1A87F3842198DFFD00F1F97C /* HIDTransaction.swift in Sources */,
 				1A87F38E2198DFFD00F1F97C /* HIDDescData.swift in Sources */,
 				1A87F3942198DFFD00F1F97C /* HIDElement.swift in Sources */,

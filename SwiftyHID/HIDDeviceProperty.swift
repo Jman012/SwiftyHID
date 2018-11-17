@@ -18,7 +18,7 @@ public protocol HIDDevicePropertyable {
 	var manufacturer: String? { get }
 	var product: String? { get }
 	var serialNumber: String? { get }
-	var countryCode: Int? { get }
+	var countryCode: HIDCountryCode? { get }
 	/// - ToDo: Find true type
 	var standardType: AnyObject? { get }
 	var locationID: Int? { get }

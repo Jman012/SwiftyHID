@@ -755,8 +755,12 @@ extension HIDDevice: HIDDevicePropertyable {
 		return getProperty(key: .serialNumber) as! String?
 	}
 	
-	public var countryCode: Int? {
-		return getProperty(key: .countryCode) as! Int?
+	public var countryCode: HIDCountryCode? {
+		if let code = getProperty(key: .countryCode) as? Int, code > 0 {
+			return HIDCountryCode(value: UInt(code))
+		} else {
+			return nil
+		}
 	}
 	
 	public var standardType: AnyObject? {
