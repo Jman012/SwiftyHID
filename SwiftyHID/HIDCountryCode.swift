@@ -8,6 +8,14 @@
 
 import Foundation
 
+/**
+ * The value Country Code identifies which country the hardware is localized
+ * for. Most hardware is not localized and thus this value would be zero (0).
+ * However, keyboards may use the field to indicate the language of the key
+ * caps. Devices are not required to place a value other than zero in this
+ * field, but some operating environments may require this information. The
+ * following table specifies the valid country codes.
+ */
 public enum HIDCountryCode {
 	case notSupported
 	case arabic
