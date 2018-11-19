@@ -63,23 +63,41 @@ public class HIDDescValidator {
 					if !usagePageSet && (!usageSet || (!usageMinSet && !usageMaxSet))
 						&& !logicalMinSet && !logicalMaxSet
 						&& !reportSizeSet && !reportCountSet {
-						if !usagePageSet {
-							errors.append(.requiredUsagePageNotSetBeforeMain)
+						
+						let isConstant: Bool
+						switch tag {
+						case .input(let data) where data.dataOrConstant == .constant:
+							isConstant = true
+						case .output(let data) where data.dataOrConstant == .constant:
+							isConstant = true
+						case .feature(let data) where data.dataOrConstant == .constant:
+							isConstant = true
+						default:
+							isConstant = false
 						}
-						if !usageSet || (!usageMinSet && !usageMaxSet) {
-							errors.append(.requiredUsageNotSetBeforeMain)
-						}
-						if !logicalMinSet {
-							errors.append(.requiredLogicalMinimumNotSetBeforeMain)
-						}
-						if !logicalMaxSet {
-							errors.append(.requiredLogicalMaximumNotSetBeforeMain)
-						}
-						if !reportSizeSet {
-							errors.append(.requiredReportSizeNotSetBeforeMain)
-						}
-						if !reportCountSet {
-							errors.append(.requiredReportCountNotSetBeforeMain)
+						
+						if isConstant && reportSizeSet && reportCountSet {
+							// Constant inputs/outputs/features can be safely ignored as long
+							// as the report size and count items are set.
+						} else {
+							if !usagePageSet {
+								errors.append(.requiredUsagePageNotSetBeforeMain)
+							}
+							if !usageSet || (!usageMinSet && !usageMaxSet) {
+								errors.append(.requiredUsageNotSetBeforeMain)
+							}
+							if !logicalMinSet {
+								errors.append(.requiredLogicalMinimumNotSetBeforeMain)
+							}
+							if !logicalMaxSet {
+								errors.append(.requiredLogicalMaximumNotSetBeforeMain)
+							}
+							if !reportSizeSet {
+								errors.append(.requiredReportSizeNotSetBeforeMain)
+							}
+							if !reportCountSet {
+								errors.append(.requiredReportCountNotSetBeforeMain)
+							}
 						}
 					}
 				}
