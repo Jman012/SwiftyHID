@@ -9,7 +9,9 @@
 import Foundation
 
 public class HIDDescValidator {
-	public static func validate(descriptorData: [HIDDescData]) -> HIDDescriptorParserError? {
+	public static func validate(descriptorData: [HIDDescData]) -> [HIDDescriptorParserError] {
+		
+		var errors: [HIDDescriptorParserError] = []
 		
 		// These should end at 0, and never go negative
 		var collectionNesting = 0
@@ -23,11 +25,24 @@ public class HIDDescValidator {
 		var stringRanges = 0
 		var designatorRanges = 0
 		
+		// These must be encountered before reaching
+		// a Main item.
+		var usagePageSet = false
+		// Either usage, or both usage min/max
+		var usageSet = false
+		var usageMinSet = false
+		var usageMaxSet = false
+		var logicalMinSet = false
+		var logicalMaxSet = false
+		var reportSizeSet = false
+		var reportCountSet = false
+		
 		for data in descriptorData {
 			let itemOpt = HIDDescriptorItem(type: data.itemType, tag: data.itemTag, unsignedValue: data.unsignedValue, signedValue: data.signedValue)
 			
 			guard let item = itemOpt else {
-				return .unknownTypeOrTag(data)
+				errors.append(.unknownTypeOrTag(data))
+				return errors // Unrecoverable
 			}
 			
 			switch item {
@@ -39,21 +54,56 @@ public class HIDDescValidator {
 					collectionNesting -= 1
 					
 					if collectionNesting < 0 {
-						return .unbalancedCollectionTags
+						errors.append(.unbalancedCollectionTags)
+						return errors // Unrecoverable
 					}
 				case .input, .output, .feature:
 					reportItemCount += 1
+					
+					if !usagePageSet && (!usageSet || (!usageMinSet && !usageMaxSet))
+						&& !logicalMinSet && !logicalMaxSet
+						&& !reportSizeSet && !reportCountSet {
+						if !usagePageSet {
+							errors.append(.requiredUsagePageNotSetBeforeMain)
+						}
+						if !usageSet || (!usageMinSet && !usageMaxSet) {
+							errors.append(.requiredUsageNotSetBeforeMain)
+						}
+						if !logicalMinSet {
+							errors.append(.requiredLogicalMinimumNotSetBeforeMain)
+						}
+						if !logicalMaxSet {
+							errors.append(.requiredLogicalMaximumNotSetBeforeMain)
+						}
+						if !reportSizeSet {
+							errors.append(.requiredReportSizeNotSetBeforeMain)
+						}
+						if !reportCountSet {
+							errors.append(.requiredReportCountNotSetBeforeMain)
+						}
+					}
 				}
 				
 			case .global(let tag):
 				switch tag {
+				case .usagePage:
+					usagePageSet = true
+				case .logicalMin:
+					logicalMinSet = true
+				case .logicalMax:
+					logicalMaxSet = true
+				case .reportSize:
+					reportSizeSet = true
+				case .reportCount:
+					reportCountSet = true
 				case .push:
 					globalPushPopBalance += 1
 				case .pop:
 					globalPushPopBalance -= 1
 					
 					if globalPushPopBalance < 0 {
-						return .unbalancedGlobalPushPop
+						errors.append(.unbalancedGlobalPushPop)
+						return errors // Unrecoverable
 					}
 				default:
 					break
@@ -61,8 +111,14 @@ public class HIDDescValidator {
 				
 			case .local(let tag):
 				switch tag {
-				case .usageMinimum, .usageMaximum:
+				case .usage:
+					usageSet = true
+				case .usageMinimum:
 					usageRanges += 1
+					usageMinSet = true
+				case .usageMaximum:
+					usageRanges += 1
+					usageMaxSet = true
 				case .stringMinimum, .stringMaximum:
 					stringRanges += 1
 				case .designatorMinimum, .designatorMaximum:
@@ -76,26 +132,26 @@ public class HIDDescValidator {
 		}
 		
 		if collectionNesting != 0 {
-			return .unbalancedCollectionTags
+			errors.append(.unbalancedCollectionTags)
 		}
 		if globalPushPopBalance != 0 {
-			return .unbalancedGlobalPushPop
+			errors.append(.unbalancedGlobalPushPop)
 		}
 		
 		if reportItemCount == 0 {
-			return .noReportItems
+			errors.append(.noReportItems)
 		}
 		
 		if usageRanges % 2 != 0 {
-			return .unevenUsageBoundaries
+			errors.append(.unevenUsageBoundaries)
 		}
 		if stringRanges % 2 != 0 {
-			return .unevenStringBoundaries
+			errors.append(.unevenStringBoundaries)
 		}
 		if designatorRanges % 2 != 0 {
-			return .unevenDesignatorBoundaries
+			errors.append(.unevenDesignatorBoundaries)
 		}
 		
-		return nil
+		return errors
 	}
 }

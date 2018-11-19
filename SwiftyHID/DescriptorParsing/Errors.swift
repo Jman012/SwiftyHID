@@ -24,5 +24,12 @@ public enum HIDDescriptorParserError: Error {
 	case unevenStringBoundaries
 	case unevenDesignatorBoundaries
 	
+	case requiredUsagePageNotSetBeforeMain
+	case requiredUsageNotSetBeforeMain
+	case requiredLogicalMinimumNotSetBeforeMain
+	case requiredLogicalMaximumNotSetBeforeMain
+	case requiredReportSizeNotSetBeforeMain
+	case requiredReportCountNotSetBeforeMain
+	
 	case invalidItemWhileParsing(invalidData: HIDDescData, parsedSoFar: [(HIDDescriptorItem, HIDDescData)])
 }
