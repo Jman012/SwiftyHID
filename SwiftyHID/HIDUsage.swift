@@ -46,7 +46,7 @@ public enum Usage {
 	case magneticStripeReader(MagneticStripeReaderUsage)
 	case reserved(ReservedUsage)
 	
-	init(withUsagePage usagePage: Int, usage: Int) {
+	public init(withUsagePage usagePage: Int, usage: Int) {
 		switch usagePage {
 		case kHIDPage_Undefined: self = .undefined(.undefined)
 		case kHIDPage_GenericDesktop: self = .genericDesktop(GenericDesktopUsage(with: usage))
