@@ -262,58 +262,6 @@ extension Dictionary where Key == HIDElementMatchKey, Value == Any {
 	}
 }
 
-public enum HIDElementCollectionType {
-	
-	/// Used for a set of data items that represent data points collected at one geometric point.
-	case physical
-	
-	/// Identifies item groups serving different purposes in a single device.
-	case application
-	
-	/// Used when a set of data items form a composite data structure.
-	case logical
-	
-	/// Wraps all the fields in a report.
-	case report
-	
-	/// Contains an array of selector usages.
-	case namedArray
-	
-	/// Modifies the meaning of the usage it contains.
-	case usageSwitch
-	
-	/// Modifies the meaning of the usage attached to the encompassing collection.
-	case usageModifier
-	
-	case other(IOHIDElementCollectionType)
-	
-	public var value: IOHIDElementCollectionType {
-		switch self {
-		case .physical: return kIOHIDElementCollectionTypePhysical
-		case .application: return kIOHIDElementCollectionTypeApplication
-		case .logical: return kIOHIDElementCollectionTypeLogical
-		case .report: return kIOHIDElementCollectionTypeReport
-		case .namedArray: return kIOHIDElementCollectionTypeNamedArray
-		case .usageSwitch: return kIOHIDElementCollectionTypeUsageSwitch
-		case .usageModifier: return kIOHIDElementCollectionTypeUsageModifier
-		case .other(let type): return type
-		}
-	}
-	
-	init(with type: IOHIDElementCollectionType) {
-		switch type {
-		case kIOHIDElementCollectionTypePhysical: self = .physical
-		case kIOHIDElementCollectionTypeApplication: self = .application
-		case kIOHIDElementCollectionTypeLogical: self = .logical
-		case kIOHIDElementCollectionTypeReport: self = .report
-		case kIOHIDElementCollectionTypeNamedArray: self = .namedArray
-		case kIOHIDElementCollectionTypeUsageSwitch: self = .usageSwitch
-		case kIOHIDElementCollectionTypeUsageModifier: self = .usageModifier
-		default: self = .other(type)
-		}
-	}
-}
-
 /**
  Describes different types of HID elements.
 
@@ -543,8 +491,9 @@ extension HIDElement {
 	@result     Returns the IOHIDElementCollectionType for the element.
 	*/
 	@available(OSX 10.5, *)
-	public var collectionType: HIDElementCollectionType {
-		return HIDElementCollectionType(with: IOHIDElementGetCollectionType(element))
+	public var collectionType: HIDDescriptorMainCollectionType {
+		let collection = IOHIDElementGetCollectionType(element)
+		return HIDDescriptorMainCollectionType(data: collection.rawValue)
 	}
 	
 	/*!
