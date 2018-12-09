@@ -181,14 +181,6 @@ extension HIDDevice {
 	// MARK: IOHIDDevice Methods
 	
 	/**
-	 Returns the type identifier of all `HIDDevice` instances
-	 */
-	@available(OSX 10.5, *)
-	static func getTypeID() -> CFTypeID {
-		return IOHIDDeviceGetTypeID()
-	}
-	
-	/**
 	 Creates an element from an `io_service_t`.
 	 
 	 The `io_service_t` passed in this method must reference an object

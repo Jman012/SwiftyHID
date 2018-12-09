@@ -361,15 +361,6 @@ extension HIDElement {
 	// MARK: IOHIDElement Methods
 	
 	/*!
-	@function   IOHIDElementGetTypeID
-	@abstract   Returns the type identifier of all IOHIDElement instances.
-	*/
-	@available(OSX 10.5, *)
-	public static func getTypeID() -> CFTypeID {
-		return IOHIDElementGetTypeID()
-	}
-	
-	/*!
 	@function   IOHIDElementCreateWithDictionary
 	@abstract   Creates an element from a dictionary.
 	@discussion The dictionary should contain keys defined in IOHIDKeys.h and start with kIOHIDElement.  This call is meant be used by a IOHIDDeviceDeviceInterface object.

@@ -23,15 +23,6 @@ extension HIDQueue {
 	// MARK: IOHIDQueue Methods
 	
 	/*!
-	@function   IOHIDQueueGetTypeID
-	@abstract   Returns the type identifier of all IOHIDQueue instances.
-	*/
-	@available(OSX 10.5, *)
-	public static func getTypeID() -> CFTypeID {
-		return IOHIDQueueGetTypeID()
-	}
-	
-	/*!
 	@function   IOHIDQueueCreate
 	@abstract   Creates an IOHIDQueue object for the specified device.
 	@discussion Take care in specifying an appropriate depth to prevent dropping

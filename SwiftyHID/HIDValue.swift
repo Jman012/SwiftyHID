@@ -57,15 +57,6 @@ extension HIDValue {
 	// MARK: IOHIDValue Methods
 	
 	/*!
-	@function   IOHIDValueGetTypeID
-	@abstract   Returns the type identifier of all IOHIDValue instances.
-	*/
-	@available(OSX 10.5, *)
-	public static func getTypeID() -> CFTypeID {
-		return IOHIDValueGetTypeID()
-	}
-	
-	/*!
 	@function   IOHIDValueCreateWithIntegerValue
 	@abstract   Creates a new element value using an integer value.
 	@discussion IOHIDValueGetTimeStamp should represent OS AbsoluteTime, not CFAbsoluteTime.

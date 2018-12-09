@@ -113,15 +113,6 @@ extension HIDManager {
 	// MARK: IOHIDManager Methods
 	
 	/*!
-	@function   IOHIDManagerGetTypeID
-	@abstract   Returns the type identifier of all IOHIDManager instances.
-	*/
-	@available(OSX 10.5, *)
-	public static func getTypeID() -> CFTypeID {
-		return IOHIDManagerGetTypeID()
-	}
-	
-	/*!
 	@function   IOHIDManagerCreate
 	@abstract   Creates an IOHIDManager object.
 	@discussion The IOHIDManager object is meant as a global management system

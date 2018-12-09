@@ -25,15 +25,6 @@ extension HIDTransaction {
 	// MARK: IOHIDTransaction Methods
 	
 	/*!
-	@function   IOHIDTransactionGetTypeID
-	@abstract   Returns the type identifier of all IOHIDTransaction instances.
-	*/
-	@available(OSX 10.5, *)
-	public static func getTypeID() -> CFTypeID {
-		return IOHIDTransactionGetTypeID()
-	}
-	
-	/*!
 	@function   IOHIDTransactionCreate
 	@abstract   Creates an IOHIDTransaction object for the specified device.
 	@discussion IOHIDTransaction objects can be used to either send or receive
