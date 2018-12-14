@@ -58,7 +58,7 @@ public protocol HIDDevicePropertyable {
 	var physicalDeviceUniqueID: AnyObject? { get }
 }
 
-public enum HIDDevicePropertyKey {
+public enum HIDDevicePropertyKey: CaseIterable {
 	case transport
 	case vendorID
 	case vendorIDSource
@@ -136,5 +136,44 @@ public enum HIDDevicePropertyKey {
 		case .physicalDeviceUniqueID: return kIOHIDPhysicalDeviceUniqueIDKey
 		case .other(let customKey): return customKey
 		}
+	}
+	
+	public static var allCases: [HIDDevicePropertyKey] {
+		return [
+			.transport,
+			.vendorID,
+			.vendorIDSource,
+			.productID,
+			.versionNumber,
+			.manufacturer,
+			.product,
+			.serialNumber,
+			.countryCode,
+			.standardType,
+			.locationID,
+			.deviceUsagePairs,
+			.primaryUsage,
+			.primaryUsagePage,
+			.maxInputReportSize,
+			.maxOutputReportSize,
+			.maxFeatureReportSize,
+			.reportInterval,
+			.sampleInterval,
+			.batchInterval,
+			.requestTimeout,
+			.reportDescriptor,
+			.reset,
+			.keyboardLanguage,
+			.altHandlerId,
+			.builtIn,
+			.displayIntegrated,
+			.productIDMask,
+			.productIDArray,
+			.powerOnDelayNS,
+			.category,
+			.maxResponseLatency,
+			.uniqueID,
+			.physicalDeviceUniqueID,
+		]
 	}
 }

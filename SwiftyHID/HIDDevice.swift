@@ -713,6 +713,7 @@ extension HIDDevice {
 }
 
 extension HIDDevice: HIDDevicePropertyable {
+	
 	// MARK: HIDDevicePropertyable Implementation
 	
 	public var transport: String? {
