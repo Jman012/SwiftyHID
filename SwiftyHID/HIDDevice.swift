@@ -1,6 +1,6 @@
 //
 //  HIDDevice.swift
-//  JoyConManager
+//  SwiftyHID
 //
 //  Created by James Linnell on 9/9/18.
 //  Copyright © 2018 James Linnell. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  WeakArray.swift
-//  JoyConManager
+//  SwiftyHID
 //
 //  Created by James Linnell on 9/29/18.
 //  Copyright © 2018 James Linnell. All rights reserved.
